@@ -1,0 +1,16 @@
+{
+  "0": {
+    "text": "Lorem Ipsum",
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Option One",
+        "nextSceneId": "1"
+      },
+      {
+        "text": "Option Two",
+        "nextSceneId": "2"
+      }
+    ]
+  }
+}
