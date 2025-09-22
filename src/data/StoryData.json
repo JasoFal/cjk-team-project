@@ -4,12 +4,29 @@
     "image": "Placeholder",
     "options": [
       {
-        "text": "Option One",
-        "nextSceneId": "1"
+        "text": "Die",
+        "nextSceneId": "2"
       },
       {
-        "text": "Option Two",
+        "text": "Receive Item",
+        "inventoryChange": {
+          "changeType": "ADD",
+          "data": {
+            "name": "foobar",
+            "id": "foobar"
+          }
+        },
         "nextSceneId": "2"
+      }
+    ]
+  },
+  "2": {
+    "text": "You got a foobar!",
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Backtrack",
+        "nextSceneId": "0"
       }
     ]
   }

@@ -5,10 +5,11 @@ import Inventory from './Inventory';
 
 function GameControl() {
   const [currentSceneId, setCurrentSceneId] = useState("0");
-  const [inventoryContent, setInventoryContent] = useState({});
+  const [inventoryContent, setInventoryContent] = useState([]);
   const [inventoryVisible, setInventoryVisible] = useState(false);
 
-  const handleChoice = (nextSceneId) => {
+  const handleChoice = (nextSceneId, inventoryChange) => {
+    if (inventoryChange) handleInventoryChange(inventoryChange);
     setCurrentSceneId(nextSceneId);
   };
 
@@ -16,18 +17,16 @@ function GameControl() {
     setInventoryVisible(!inventoryVisible);
   };
 
-  const handleInventoryChange = (changeType, data) => {
+  const handleInventoryChange = ({ changeType, data }) => {
     switch (changeType) {
       case "ADD":
-        setInventoryContent({ ...inventoryContent, ...data });
+        setInventoryContent(inventoryContent.concat(data));
         break;
       case "REMOVE":
-        setInventoryContent(Object.entries(inventoryContent).reduce((acc, [key, value]) => {
-          return key === data ? acc : { ...acc, key: value }
-        }, {}))
+        setInventoryContent(inventoryContent.filter(el => el.id !== data.id))
         break;
       case "CLEAR":
-        setInventoryContent({});
+        setInventoryContent([]);
         break;
     }
   };
@@ -38,7 +37,6 @@ function GameControl() {
         currentScene={storyData[currentSceneId]}
         inventory={inventoryContent}
         onChoice={handleChoice}
-        onInventoryChange={handleInventoryChange}
       />
       <hr />
       <button onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>

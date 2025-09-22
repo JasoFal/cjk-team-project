@@ -2,15 +2,17 @@ import React from 'react';
 import StoryDisplay from './StoryDisplay';
 import Choices from './Choices';
 
-function Game({ currentScene, inventory, onChoice, onInventoryChange }) {
+function Game({ currentScene, inventory, onChoice, }) {
   if (!currentScene) {
     return <div>Game Over!</div>; // TODO: add restart
   }
+  let sceneText = currentScene.text;
+  let sceneOptions = currentScene.options;
 
   return (
     <React.Fragment>
-      <StoryDisplay text={currentScene.text} image={currentScene.image} />
-      <Choices options={currentScene.options} onChoice={onChoice} />
+      <StoryDisplay text={sceneText} image={currentScene.image} />
+      <Choices options={sceneOptions} onChoice={onChoice} />
     </React.Fragment>
   );
 }
