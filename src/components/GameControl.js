@@ -12,20 +12,38 @@ function GameControl() {
     setCurrentSceneId(nextSceneId);
   };
 
-  const handleInventoryClick = () => {
+  const handleInventoryDisplayClick = () => {
     setInventoryVisible(!inventoryVisible);
+  };
+
+  const handleInventoryChange = (changeType, data) => {
+    switch (changeType) {
+      case "ADD":
+        setInventoryContent({ ...inventoryContent, ...data });
+        break;
+      case "REMOVE":
+        setInventoryContent(Object.entries(inventoryContent).reduce((acc, [key, value]) => {
+          return key === data ? acc : { ...acc, key: value }
+        }, {}))
+        break;
+      case "CLEAR":
+        setInventoryContent({});
+        break;
+    }
   };
 
   return (
     <React.Fragment>
       <Game
         currentScene={storyData[currentSceneId]}
+        inventory={inventoryContent}
         onChoice={handleChoice}
+        onInventoryChange={handleInventoryChange}
       />
       <hr />
-      <button onClick={handleInventoryClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
+      <button onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
-        <Inventory />
+        <Inventory content={inventoryContent} />
       }
     </React.Fragment>
   );
