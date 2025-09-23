@@ -4,7 +4,7 @@ import storyData from '../data/StoryData.json';
 import Inventory from './Inventory';
 
 function GameControl() {
-  const [currentSceneId, setCurrentSceneId] = useState("0");
+  const [currentSceneId, setCurrentSceneId] = useState("1");
   const [inventoryContent, setInventoryContent] = useState([]);
   const [inventoryVisible, setInventoryVisible] = useState(false);
 
@@ -28,6 +28,8 @@ function GameControl() {
       case "CLEAR":
         setInventoryContent([]);
         break;
+      default:
+        throw Error("Improper inventory change type");
     }
   };
 

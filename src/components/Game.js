@@ -3,9 +3,6 @@ import StoryDisplay from './StoryDisplay';
 import Choices from './Choices';
 
 function Game({ currentScene, inventory, onChoice }) {
-  if (!currentScene) {
-    return <div>Game Over!</div>; // TODO: add restart
-  }
 
   const validOption = (conditions) => {
     let valid = true;
@@ -22,6 +19,8 @@ function Game({ currentScene, inventory, onChoice }) {
               valid = false;
             }
             break;
+          default:
+            throw Error("Improper condition type");
         }
       });
     }
@@ -29,7 +28,7 @@ function Game({ currentScene, inventory, onChoice }) {
   }
 
   let sceneText = currentScene.text;
-  const sceneOptions = currentScene.options.filter((val) => validOption(val.conditions));
+  const sceneOptions = currentScene.options.filter((val) => val.conditions ? validOption(val.conditions) : true);
 
   return (
     <React.Fragment>

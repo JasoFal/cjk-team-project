@@ -1,11 +1,11 @@
 {
-  "0": {
-    "text": "Lorem Ipsum",
+  "1": {
+    "text": "Your adventure starts",
     "image": "Placeholder",
     "options": [
       {
         "text": "Die",
-        "nextSceneId": "1"
+        "nextSceneId": "0"
       },
       {
         "conditions": [
@@ -23,6 +23,22 @@
           }
         },
         "nextSceneId": "2"
+      },
+      {
+        "conditions": [
+          [
+            "HAS",
+            "foobar-item"
+          ]
+        ],
+        "text": "Lose Item",
+        "inventoryChange": {
+          "changeType": "REMOVE",
+          "data": {
+            "id": "foobar-item"
+          }
+        },
+        "nextSceneId": "3"
       }
     ]
   },
@@ -32,7 +48,17 @@
     "options": [
       {
         "text": "Backtrack",
-        "nextSceneId": "0"
+        "nextSceneId": "1"
+      }
+    ]
+  },
+  "3": {
+    "text": "Your  foobar was tragically lost",
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Backtrack",
+        "nextSceneId": "1"
       }
     ]
   }
