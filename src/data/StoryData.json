@@ -1,6 +1,10 @@
 {
   "0": {
-    "text": "You have died!",
+    "text": [
+      {
+        "line": "You have died!"
+      }
+    ],
     "image": "Placeholder",
     "options": [
       {
@@ -13,7 +17,23 @@
     ]
   },
   "1": {
-    "text": "Your adventure starts",
+    "text": [
+      {
+        "line": "You stand at the mouth of a cave"
+      },
+      {
+        "conditions": [
+          [
+            "HAS",
+            "foobar-item"
+          ]
+        ],
+        "line": ", foobar in hand"
+      },
+      {
+        "line": ". You ponder your options."
+      }
+    ],
     "image": "Placeholder",
     "options": [
       {
@@ -30,7 +50,7 @@
         "text": "Receive Item",
         "inventoryChange": {
           "changeType": "ADD",
-          "itemId": "foorbar-item"
+          "itemId": "foobar-item"
         },
         "nextSceneId": "2"
       },
@@ -51,7 +71,11 @@
     ]
   },
   "2": {
-    "text": "You got a foobar!",
+    "text": [
+      {
+        "line": "You got foobar!"
+      }
+    ],
     "image": "Placeholder",
     "options": [
       {
@@ -61,7 +85,11 @@
     ]
   },
   "3": {
-    "text": "Your  foobar was tragically lost",
+    "text": [
+      {
+        "line": "Your  foobar was tragically lost"
+      }
+    ],
     "image": "Placeholder",
     "options": [
       {

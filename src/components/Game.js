@@ -4,7 +4,7 @@ import Choices from './Choices';
 
 function Game({ currentScene, inventory, onChoice }) {
 
-  const validOption = (conditions) => {
+  const areConditionsMet = (conditions) => {
     let valid = true;
     if (conditions) {
       conditions.forEach(condition => {
@@ -27,8 +27,15 @@ function Game({ currentScene, inventory, onChoice }) {
     return valid;
   }
 
-  let sceneText = currentScene.text;
-  const sceneOptions = currentScene.options.filter((val) => val.conditions ? validOption(val.conditions) : true);
+  const compileSceneText = (scene) => {
+    const compiledText = scene.text.reduce((acc, currVal) => {
+      return areConditionsMet(currVal.conditions) ? acc.concat(currVal.line) : acc
+    }, "");
+    return compiledText;
+  }
+
+  const sceneText = compileSceneText(currentScene);
+  const sceneOptions = currentScene.options.filter((val) => areConditionsMet(val.conditions));
 
   return (
     <React.Fragment>
