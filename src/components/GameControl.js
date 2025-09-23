@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Game from './Game';
 import storyData from '../data/StoryData.json';
+import itemData from '../data/ItemData.json';
 import Inventory from './Inventory';
 
 function GameControl() {
@@ -17,13 +18,13 @@ function GameControl() {
     setInventoryVisible(!inventoryVisible);
   };
 
-  const handleInventoryChange = ({ changeType, data }) => {
+  const handleInventoryChange = ({ changeType, itemId }) => {
     switch (changeType) {
       case "ADD":
-        setInventoryContent(inventoryContent.concat(data));
+        setInventoryContent(inventoryContent.concat(itemData[itemId]));
         break;
       case "REMOVE":
-        setInventoryContent(inventoryContent.filter(el => el.id !== data.id))
+        setInventoryContent(inventoryContent.filter(el => el.id !== itemId))
         break;
       case "CLEAR":
         setInventoryContent([]);
@@ -32,6 +33,16 @@ function GameControl() {
         throw Error("Improper inventory change type");
     }
   };
+
+  const isInventoryEmpty = (inventory) => {
+    let empty = true;
+    inventory.forEach(item => {
+      if (item.type !== "flag") {
+        empty = false;
+      }
+    });
+    return empty;
+  }
 
   return (
     <React.Fragment>
@@ -43,7 +54,9 @@ function GameControl() {
       <hr />
       <button onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
-        <Inventory content={inventoryContent} />
+        <div>
+          {isInventoryEmpty(inventoryContent) ? <h4>Your inventory is empty!</h4> : <Inventory content={inventoryContent} />}
+        </div>
       }
     </React.Fragment>
   );

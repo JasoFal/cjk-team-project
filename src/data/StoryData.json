@@ -17,10 +17,7 @@
         "text": "Receive Item",
         "inventoryChange": {
           "changeType": "ADD",
-          "data": {
-            "name": "foobar",
-            "id": "foobar-item"
-          }
+          "itemId": "foorbar-item"
         },
         "nextSceneId": "2"
       },
@@ -34,9 +31,7 @@
         "text": "Lose Item",
         "inventoryChange": {
           "changeType": "REMOVE",
-          "data": {
-            "id": "foobar-item"
-          }
+          "itemId": "foobar-item"
         },
         "nextSceneId": "3"
       }
