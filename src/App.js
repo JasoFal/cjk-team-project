@@ -5,7 +5,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className="container">
+      <div className="container ">
         <h1>Text Adventure</h1>
         <GameControl />
       </div>

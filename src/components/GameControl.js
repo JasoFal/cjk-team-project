@@ -52,7 +52,7 @@ function GameControl() {
         onChoice={handleChoice}
       />
       <hr />
-      <button onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
+      <button className="btn btn-success mb-3" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
         <div>
           {isInventoryEmpty(inventoryContent) ? <h4>Your inventory is empty!</h4> : <Inventory content={inventoryContent} />}

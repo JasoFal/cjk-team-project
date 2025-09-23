@@ -5,11 +5,11 @@ function Inventory({ content }) {
   return (
     <React.Fragment>
       <h4>Inventory:</h4>
-      {content.map((item) =>
-        <div key={item.id}>
-          <p>{item.name}</p>
-        </div>
-      )}
+      <ul className="list-group">
+        {content.map((item) =>
+          <li className="list-group-item" key={item.id}>{item.name}</li>
+        )}
+      </ul>
     </React.Fragment>
   );
 }
