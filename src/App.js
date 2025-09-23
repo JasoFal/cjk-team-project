@@ -5,8 +5,10 @@ function App() {
 
   return (
     <React.Fragment>
-      <h1>Text Adventure</h1>
-      <GameControl />
+      <div className="container">
+        <h1>Text Adventure</h1>
+        <GameControl />
+      </div>
     </React.Fragment>
   );
 }

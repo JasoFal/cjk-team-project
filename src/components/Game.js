@@ -2,7 +2,7 @@ import React from 'react';
 import StoryDisplay from './StoryDisplay';
 import Choices from './Choices';
 
-function Game({ currentScene, inventory, onChoice, }) {
+function Game({ currentScene, inventory, onChoice }) {
   if (!currentScene) {
     return <div>Game Over!</div>; // TODO: add restart
   }
@@ -29,9 +29,7 @@ function Game({ currentScene, inventory, onChoice, }) {
   }
 
   let sceneText = currentScene.text;
-  const sceneOptions = currentScene.options.reduce((acc, currVal) => {
-    return validOption(currVal.conditions) ? acc.concat(currVal) : acc;
-  }, []);
+  const sceneOptions = currentScene.options.filter((val) => validOption(val.conditions));
 
   return (
     <React.Fragment>
