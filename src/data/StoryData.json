@@ -1,4 +1,17 @@
 {
+  "0": {
+    "text": "You have died!",
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Restart",
+        "inventoryChange": {
+          "changeType": "CLEAR"
+        },
+        "nextSceneId": "1"
+      }
+    ]
+  },
   "1": {
     "text": "Your adventure starts",
     "image": "Placeholder",
