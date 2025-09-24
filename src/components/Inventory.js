@@ -1,13 +1,14 @@
 import React from 'react';
+import Item from './Item';
 
 function Inventory({ content }) {
 
   return (
     <React.Fragment>
       <h4>Inventory:</h4>
-      <ul className="list-group">
+      <ul className="list-group d-inline-flex">
         {content.map((item) =>
-          <li className="list-group-item" key={item.id}>{item.name}</li>
+          <Item key={item.id} item={item} />
         )}
       </ul>
     </React.Fragment>

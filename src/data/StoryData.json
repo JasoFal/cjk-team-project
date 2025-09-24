@@ -8,7 +8,7 @@
     "image": "Placeholder",
     "options": [
       {
-        "text": "Restart",
+        "text": "Begin again",
         "inventoryChange": {
           "changeType": "CLEAR"
         },
@@ -37,7 +37,7 @@
     "image": "Placeholder",
     "options": [
       {
-        "text": "Die",
+        "text": "Restart",
         "nextSceneId": "0"
       },
       {
@@ -67,6 +67,16 @@
           "itemId": "foobar-item"
         },
         "nextSceneId": "3"
+      },
+      {
+        "conditions": [
+          [
+            "HAS",
+            "foobar-item"
+          ]
+        ],
+        "text": "Continue Deeper",
+        "nextSceneId": "4"
       }
     ]
   },
@@ -95,6 +105,41 @@
       {
         "text": "Backtrack",
         "nextSceneId": "1"
+      }
+    ]
+  },
+  "4": {
+    "text": [
+      {
+        "line": "Now properly equipped, you descend. Following the path carved into the cave's wall eventually leads you to a small room. On a pedestal stands a strange object"
+      }
+    ],
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Take Object",
+        "inventoryChange": {
+          "changeType": "ADD",
+          "itemId": "baaz-item"
+        },
+        "nextSceneId": "5"
+      }
+    ]
+  },
+  "5": {
+    "text": [
+      {
+        "line": "You got baaz!"
+      }
+    ],
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Restart",
+        "inventoryChange": {
+          "changeType": "CLEAR"
+        },
+        "nextSceneId": "0"
       }
     ]
   }
