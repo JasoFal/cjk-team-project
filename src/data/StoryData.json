@@ -47,7 +47,7 @@
             "foobar-item"
           ]
         ],
-        "text": "Receive Item",
+        "text": "Take Foobar",
         "inventoryChange": {
           "changeType": "ADD",
           "itemId": "foobar-item"
@@ -61,7 +61,7 @@
             "foobar-item"
           ]
         ],
-        "text": "Lose Item",
+        "text": "Drop Foobar",
         "inventoryChange": {
           "changeType": "REMOVE",
           "itemId": "foobar-item"
@@ -97,7 +97,7 @@
   "3": {
     "text": [
       {
-        "line": "Your  foobar was tragically lost"
+        "line": "The foobar falls to your feet"
       }
     ],
     "image": "Placeholder",

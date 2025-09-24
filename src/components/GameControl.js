@@ -3,11 +3,13 @@ import Game from './Game';
 import storyData from '../data/StoryData.json';
 import itemData from '../data/ItemData.json';
 import Inventory from './Inventory';
+import CharacterSheet from './CharacterSheet';
 
 function GameControl() {
   const [currentSceneId, setCurrentSceneId] = useState("1");
   const [inventoryContent, setInventoryContent] = useState([]);
   const [inventoryVisible, setInventoryVisible] = useState(false);
+  const [characterSheetVisible, setCharacterSheetVisible] = useState(false);
 
   const handleChoice = (nextSceneId, inventoryChange) => {
     if (inventoryChange) handleInventoryChange(inventoryChange);
@@ -16,6 +18,10 @@ function GameControl() {
 
   const handleInventoryDisplayClick = () => {
     setInventoryVisible(!inventoryVisible);
+  };
+
+  const handleCharacterSheetDisplayClick = () => {
+    setCharacterSheetVisible(!characterSheetVisible);
   };
 
   const handleInventoryChange = ({ changeType, itemId }) => {
@@ -52,12 +58,20 @@ function GameControl() {
         onChoice={handleChoice}
       />
       <hr />
-      <button className="btn btn-success mb-3" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
+      <button className="btn btn-success mb-1" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
-        <div>
+        <div className="my-3">
           {isInventoryEmpty(inventoryContent) ? <h4>Your inventory is empty!</h4> : <Inventory content={inventoryContent} />}
         </div>
       }
+      <div>
+        <button className="btn btn-primary mb-2" onClick={handleCharacterSheetDisplayClick}>{characterSheetVisible ? "Hide" : "Show"} character sheet</button>
+        {
+          characterSheetVisible &&
+          <CharacterSheet />
+
+        }
+      </div>
     </React.Fragment>
   );
 }
