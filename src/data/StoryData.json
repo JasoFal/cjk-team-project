@@ -37,10 +37,6 @@
     "image": "Placeholder",
     "options": [
       {
-        "text": "Restart",
-        "nextSceneId": "0"
-      },
-      {
         "conditions": [
           [
             "LACKS",
