@@ -11,19 +11,23 @@ function GameControl() {
   const [inventoryVisible, setInventoryVisible] = useState(false);
   const [characterSheetVisible, setCharacterSheetVisible] = useState(false);
 
+  // Update inventory and/or go to next scene upon selecting a scene option
   const handleChoice = (nextSceneId, inventoryChange) => {
     if (inventoryChange) handleInventoryChange(inventoryChange);
     setCurrentSceneId(nextSceneId);
   };
 
+  // Toggle inventory visibility
   const handleInventoryDisplayClick = () => {
     setInventoryVisible(!inventoryVisible);
   };
 
+  // Toggle character sheet visibility
   const handleCharacterSheetDisplayClick = () => {
     setCharacterSheetVisible(!characterSheetVisible);
   };
 
+  // Change InventoryContent by adding items from InventoryData.json or removing them
   const handleInventoryChange = ({ changeType, itemId }) => {
     switch (changeType) {
       case "ADD":
@@ -40,6 +44,8 @@ function GameControl() {
     }
   };
 
+  // Helper function to check for an inventory empty of visible items
+  // 'flag' items are invisible items which can be used for internal condition logic
   const isInventoryEmpty = (inventory) => {
     let empty = true;
     inventory.forEach(item => {
@@ -60,7 +66,7 @@ function GameControl() {
       <hr />
       <button className="btn btn-success mb-1" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
-        <div className="my-3">
+        <div className="mt-1 mb-3">
           {isInventoryEmpty(inventoryContent) ? <h4>Your inventory is empty!</h4> : <Inventory content={inventoryContent} />}
         </div>
       }

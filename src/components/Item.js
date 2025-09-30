@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ItemDetail from './ItemDetail';
 
 function Item({ item }) {
+  // state used to display or hide popup details on mouseover
   const [showingDetails, setShowingDetails] = useState(false);
 
   return (

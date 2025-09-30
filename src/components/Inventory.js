@@ -1,8 +1,8 @@
 import React from 'react';
 import Item from './Item';
 
+// return unordered list element of all non-flag items
 function Inventory({ content }) {
-  // return unordered list element of all non-flag items
   return (
     <React.Fragment>
       <ul className="list-group d-inline-flex">

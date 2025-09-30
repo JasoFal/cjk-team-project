@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Currently static character sheet
 function CharacterSheet() {
 
   return (
