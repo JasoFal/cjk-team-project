@@ -1,0 +1,45 @@
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .scroll-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+  }
+
+  .textbox {
+    position: absolute;
+    top: 15%;
+    left: 12%;
+    right: 12%;
+    bottom: 15%;
+    overflow-y: auto;
+    color: #3b2f2f;
+    font-family: 'Papyrus', 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .event {
+    margin-bottom: 16px;
+  }
+
+  .text {
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+    text-shadow: 0 0 1px #00000033;
+  }
+
+  .image {
+    max-width: 100%;
+    max-height: 180px;
+    display: block;
+    border-radius: 6px;
+    border: 1px solid #b28b58;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
