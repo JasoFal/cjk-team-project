@@ -4,7 +4,7 @@ function Choices({ options, onChoice }) {
   return (
     <React.Fragment>
       {options.map((option, index) => (
-        <button className="fantasy-btn" key={index} onClick={() => onChoice(option.nextSceneId, option.inventoryChange)}>
+        <button className="choice-btn" key={index} onClick={() => onChoice(option.nextSceneId, option.inventoryChange)}>
           {option.text}
         </button>
       ))}
