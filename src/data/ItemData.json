@@ -2,6 +2,13 @@
   "foobar-item": {
     "id": "foobar-item",
     "name": "foobar",
-    "type": "item"
+    "type": "item",
+    "desc": "A programmer's best friend"
+  },
+  "baaz-item": {
+    "id": "baaz-item",
+    "name": "baaz",
+    "type": "item",
+    "desc": "A programmer's second best friend"
   }
 }

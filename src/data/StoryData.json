@@ -8,7 +8,7 @@
     "image": "Placeholder",
     "options": [
       {
-        "text": "Restart",
+        "text": "Begin again",
         "inventoryChange": {
           "changeType": "CLEAR"
         },
@@ -37,17 +37,13 @@
     "image": "Placeholder",
     "options": [
       {
-        "text": "Die",
-        "nextSceneId": "0"
-      },
-      {
         "conditions": [
           [
             "LACKS",
             "foobar-item"
           ]
         ],
-        "text": "Receive Item",
+        "text": "Take Foobar",
         "inventoryChange": {
           "changeType": "ADD",
           "itemId": "foobar-item"
@@ -61,12 +57,22 @@
             "foobar-item"
           ]
         ],
-        "text": "Lose Item",
+        "text": "Drop Foobar",
         "inventoryChange": {
           "changeType": "REMOVE",
           "itemId": "foobar-item"
         },
         "nextSceneId": "3"
+      },
+      {
+        "conditions": [
+          [
+            "HAS",
+            "foobar-item"
+          ]
+        ],
+        "text": "Continue Deeper",
+        "nextSceneId": "4"
       }
     ]
   },
@@ -87,7 +93,7 @@
   "3": {
     "text": [
       {
-        "line": "Your  foobar was tragically lost"
+        "line": "The foobar falls to your feet"
       }
     ],
     "image": "Placeholder",
@@ -95,6 +101,41 @@
       {
         "text": "Backtrack",
         "nextSceneId": "1"
+      }
+    ]
+  },
+  "4": {
+    "text": [
+      {
+        "line": "Now properly equipped, you descend. Following the path carved into the cave's wall eventually leads you to a small room. On a pedestal stands a strange object"
+      }
+    ],
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Take Object",
+        "inventoryChange": {
+          "changeType": "ADD",
+          "itemId": "baaz-item"
+        },
+        "nextSceneId": "5"
+      }
+    ]
+  },
+  "5": {
+    "text": [
+      {
+        "line": "You got baaz!"
+      }
+    ],
+    "image": "Placeholder",
+    "options": [
+      {
+        "text": "Restart",
+        "inventoryChange": {
+          "changeType": "CLEAR"
+        },
+        "nextSceneId": "0"
       }
     ]
   }

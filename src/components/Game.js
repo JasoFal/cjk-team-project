@@ -4,6 +4,8 @@ import Choices from './Choices';
 
 function Game({ currentScene, inventory, onChoice }) {
 
+  // Check inventory to see if player has or lacks items
+  // This is used to alter scene text or the available options
   const areConditionsMet = (conditions) => {
     let valid = true;
     if (conditions) {
@@ -27,6 +29,8 @@ function Game({ currentScene, inventory, onChoice }) {
     return valid;
   }
 
+  // Combine slices of text as given by StoryData.json
+  // String slices can be present or absent depending on the condition of the inventory
   const compileSceneText = (scene) => {
     const compiledText = scene.text.reduce((acc, currVal) => {
       return areConditionsMet(currVal.conditions) ? acc.concat(currVal.line) : acc

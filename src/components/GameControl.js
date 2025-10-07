@@ -3,21 +3,31 @@ import Game from './Game';
 import storyData from '../data/StoryData.json';
 import itemData from '../data/ItemData.json';
 import Inventory from './Inventory';
+import CharacterSheet from './CharacterSheet';
 
 function GameControl() {
   const [currentSceneId, setCurrentSceneId] = useState("1");
   const [inventoryContent, setInventoryContent] = useState([]);
   const [inventoryVisible, setInventoryVisible] = useState(false);
+  const [characterSheetVisible, setCharacterSheetVisible] = useState(false);
 
+  // Update inventory and/or go to next scene upon selecting a scene option
   const handleChoice = (nextSceneId, inventoryChange) => {
     if (inventoryChange) handleInventoryChange(inventoryChange);
     setCurrentSceneId(nextSceneId);
   };
 
+  // Toggle inventory visibility
   const handleInventoryDisplayClick = () => {
     setInventoryVisible(!inventoryVisible);
   };
 
+  // Toggle character sheet visibility
+  const handleCharacterSheetDisplayClick = () => {
+    setCharacterSheetVisible(!characterSheetVisible);
+  };
+
+  // Change InventoryContent by adding items from InventoryData.json or removing them
   const handleInventoryChange = ({ changeType, itemId }) => {
     switch (changeType) {
       case "ADD":
@@ -34,6 +44,8 @@ function GameControl() {
     }
   };
 
+  // Helper function to check for an inventory empty of visible items
+  // 'flag' items are invisible items which can be used for internal condition logic
   const isInventoryEmpty = (inventory) => {
     let empty = true;
     inventory.forEach(item => {
@@ -52,12 +64,20 @@ function GameControl() {
         onChoice={handleChoice}
       />
       <hr />
-      <button className="btn btn-success mb-3" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
+      <button className="btn btn-success mb-1" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
-        <div>
+        <div className="mt-1 mb-3">
           {isInventoryEmpty(inventoryContent) ? <h4>Your inventory is empty!</h4> : <Inventory content={inventoryContent} />}
         </div>
       }
+      <div>
+        <button className="btn btn-primary mb-2" onClick={handleCharacterSheetDisplayClick}>{characterSheetVisible ? "Hide" : "Show"} character sheet</button>
+        {
+          characterSheetVisible &&
+          <CharacterSheet />
+
+        }
+      </div>
     </React.Fragment>
   );
 }
