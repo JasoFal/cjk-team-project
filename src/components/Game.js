@@ -1,6 +1,5 @@
 import React from 'react';
 import StoryDisplay from './StoryDisplay';
-import Choices from './Choices';
 
 function Game({ currentScene, inventory, onChoice, resetKey }) {
 
@@ -43,8 +42,14 @@ function Game({ currentScene, inventory, onChoice, resetKey }) {
 
   return (
     <React.Fragment>
-      <StoryDisplay newText={sceneText} newImage={currentScene.image} currentScene={currentScene} resetKey={resetKey} />
-      <Choices options={sceneOptions} onChoice={onChoice} />
+      <StoryDisplay
+        newText={sceneText}
+        newImage={currentScene.image}
+        currentScene={currentScene}
+        resetKey={resetKey}
+        options={sceneOptions}
+        onChoice={onChoice}
+      />
     </React.Fragment>
   );
 }

@@ -1,10 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Choices from './Choices';
 import './../component css/StoryDisplay.css';
 import scrollBg from './../assets/scroll-bg.png'
 
-function StoryDisplay({ newText, newImage, resetKey }) {
+function StoryDisplay({ newText, newImage, resetKey, options, onChoice }) {
   const [eventLog, setEventLog] = useState([]);
   const logEndRef = useRef(null);
+  const newTextRef = useRef(newText);
+  const newImageRef = useRef(newImage);
+
+  useEffect(() => {
+    newTextRef.current = newText;
+    newImageRef.current = newImage;
+  }, [newText, newImage]);
 
   // Add new events to the log when newText or newImage changes
   useEffect(() => {
@@ -16,12 +24,14 @@ function StoryDisplay({ newText, newImage, resetKey }) {
     }
   }, [newText, newImage]);
 
-  // Clear event log and add opening scene ONLY when game restarts (resetKey changes)
+  // Clear event log and add opening scene when resetKey changes
   useEffect(() => {
-    const openingEvent = {};
-    if (newText) openingEvent.text = newText;
-    if (newImage) openingEvent.image = newImage;
-    setEventLog(openingEvent.text || openingEvent.image ? [openingEvent] : []);
+    setEventLog(() => {
+      const openingEvent = {};
+      if (newTextRef.current) openingEvent.text = newTextRef.current;
+      if (newImageRef.current) openingEvent.image = newImageRef.current;
+      return openingEvent.text || openingEvent.image ? [openingEvent] : [];
+    });
   }, [resetKey]);
 
   useEffect(() => {
@@ -49,6 +59,7 @@ function StoryDisplay({ newText, newImage, resetKey }) {
               )}
             </div>
           ))}
+          <Choices options={options} onChoice={onChoice} />
           <div ref={logEndRef} />
         </div>
       </div>
