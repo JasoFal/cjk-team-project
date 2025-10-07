@@ -39,7 +39,7 @@ function Game({ currentScene, inventory, onChoice }) {
 
   return (
     <React.Fragment>
-      <StoryDisplay text={sceneText} image={currentScene.image} />
+      <StoryDisplay newText={sceneText} newImage={currentScene.image} />
       <Choices options={sceneOptions} onChoice={onChoice} />
     </React.Fragment>
   );
