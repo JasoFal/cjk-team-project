@@ -6,7 +6,7 @@ function App() {
   return (
     <React.Fragment>
       <div className="container">
-  <h1 className="main-title">Text Adventure</h1>
+        <h1 className="main-title">Text Adventure</h1>
         <GameControl />
       </div>
     </React.Fragment>
