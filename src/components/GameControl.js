@@ -10,10 +10,15 @@ function GameControl() {
   const [inventoryContent, setInventoryContent] = useState([]);
   const [inventoryVisible, setInventoryVisible] = useState(false);
   const [characterSheetVisible, setCharacterSheetVisible] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
 
   // Update inventory and/or go to next scene upon selecting a scene option
   const handleChoice = (nextSceneId, inventoryChange) => {
     if (inventoryChange) handleInventoryChange(inventoryChange);
+    // If restarting game, increment resetKey
+    if (nextSceneId === "1" && currentSceneId === "0") {
+      setResetKey(prev => prev + 1);
+    }
     setCurrentSceneId(nextSceneId);
   };
 
@@ -62,6 +67,7 @@ function GameControl() {
         currentScene={storyData[currentSceneId]}
         inventory={inventoryContent}
         onChoice={handleChoice}
+        resetKey={resetKey}
       />
       <hr />
       <button className="btn btn-success mb-1" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
