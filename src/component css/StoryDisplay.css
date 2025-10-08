@@ -1,4 +1,51 @@
-/* Fantasy style for choice buttons */
+/* Layout for sidebar and scroll */
+.game-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2vw;
+  width: 100%;
+  margin-top: 2vw;
+}
+
+.sidebar {
+  min-width: 180px;
+  max-width: 220px;
+  background: rgba(44,32,12,0.08);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 rgba(44,32,12,0.12);
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  z-index: 10;
+}
+
+.main-scroll {
+  flex: 1;
+  min-width: 340px;
+  max-width: 700px;
+  z-index: 2;
+}
+.main-title {
+  font-family: 'UnifrakturCook', 'MedievalSharp', 'IM Fell English', serif;
+  font-size: 2.8rem;
+  color: #fff8dc;
+  text-shadow:
+    0 2px 8px #2e1b0f,
+    0 0 12px #b28b58,
+    0 0 2px #fff8dc;
+  letter-spacing: 2px;
+  padding: 12px 0 18px 0;
+  margin-bottom: 12px;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(183, 140, 64, 0.18) 0%, rgba(255, 248, 220, 0.08) 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 18px 0 rgba(44, 32, 12, 0.18);
+}
+
 .choice-btn {
   font-family: 'UnifrakturCook', 'MedievalSharp', 'IM Fell English', serif;
   background: linear-gradient(90deg, #e7c27b 0%, #b28b58 100%);
@@ -19,7 +66,7 @@
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(59, 47, 47, 0.4);
 }
-/* Typewriter animation for latest event */
+
 .typewriter {
   display: inline-block;
   overflow: hidden;
