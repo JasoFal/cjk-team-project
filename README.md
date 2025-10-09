@@ -1,6 +1,6 @@
 # Adventure Game Framework
 
-#### By **Samantha Callie** and **Jason [last name here]**
+#### By **Samantha Callie** and **Jason**
 
 ## Description
 
