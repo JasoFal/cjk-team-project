@@ -11,8 +11,7 @@ This is a simple framework for making button-based adventure games. It provides 
 1. Press the green <> Code button and select Download ZIP
 2. Unzip file
 3. In the top directory, open your terminal (e.g., Terminal or GitBash) and run the command `npm i` (requires npm)
-4. follow along with [these lessons](https://fidgetechcode.org/v1.1/react/react-with-nosql/4-4-0-9-setting-up-a-firebase-project-firestore-database-and-web-app) to set up firebase
-5. then run one of these commands
+4. Then run one of these commands
 
 ## Available Scripts
 
