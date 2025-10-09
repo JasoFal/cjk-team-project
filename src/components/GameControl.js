@@ -69,7 +69,6 @@ function GameControl() {
         onChoice={handleChoice}
         resetKey={resetKey}
       />
-      <hr />
       <button className="btn btn-success mb-1" onClick={handleInventoryDisplayClick}>{inventoryVisible ? "Hide" : "Show"} inventory</button>
       {inventoryVisible &&
         <div className="mt-1 mb-3">
