@@ -1,8 +1,7 @@
 import React from 'react';
 import StoryDisplay from './StoryDisplay';
-import Choices from './Choices';
 
-function Game({ currentScene, inventory, onChoice }) {
+function Game({ currentScene, inventory, onChoice, resetKey }) {
 
   // Check inventory to see if player has or lacks items
   // This is used to alter scene text or the available options
@@ -43,8 +42,14 @@ function Game({ currentScene, inventory, onChoice }) {
 
   return (
     <React.Fragment>
-      <StoryDisplay text={sceneText} image={currentScene.image} />
-      <Choices options={sceneOptions} onChoice={onChoice} />
+      <StoryDisplay
+        newText={sceneText}
+        newImage={currentScene.image}
+        currentScene={currentScene}
+        resetKey={resetKey}
+        options={sceneOptions}
+        onChoice={onChoice}
+      />
     </React.Fragment>
   );
 }
