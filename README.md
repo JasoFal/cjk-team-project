@@ -1,6 +1,6 @@
 # Adventure Game Framework
 
-#### By **Samantha Callie** and **Jason**
+#### By **Samantha Callie** and **Jason Falk**
 
 ## Description
 
@@ -107,6 +107,6 @@ To make your own adventure, all that is required is to modify `StoryData.json` a
 
 ## License
 
-Copyright (c) 2025 Samantha Callie and Jason [last name here]
+Copyright (c) 2025 Samantha Callie and Jason Falk
 
 [GNU](LICENSE)
